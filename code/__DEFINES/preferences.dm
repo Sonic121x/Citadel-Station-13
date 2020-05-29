@@ -44,12 +44,12 @@
 #define PARALLAX_DELAY_MED     1
 #define PARALLAX_DELAY_LOW     2
 
-#define SEC_DEPT_NONE "None"
-#define SEC_DEPT_RANDOM "Random"
-#define SEC_DEPT_ENGINEERING "Engineering"
-#define SEC_DEPT_MEDICAL "Medical"
-#define SEC_DEPT_SCIENCE "Science"
-#define SEC_DEPT_SUPPLY "Supply"
+#define SEC_DEPT_NONE "无"
+#define SEC_DEPT_RANDOM "随机"
+#define SEC_DEPT_ENGINEERING "工程"
+#define SEC_DEPT_MEDICAL "医疗"
+#define SEC_DEPT_SCIENCE "科研"
+#define SEC_DEPT_SUPPLY "补给"
 
 // Playtime tracking system, see jobs_exp.dm
 #define EXP_TYPE_LIVING			"Living"
