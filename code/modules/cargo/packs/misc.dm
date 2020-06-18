@@ -101,7 +101,7 @@
 	. = ..()
 	for(var/i in 1 to 7)
 		new /obj/item/bedsheet/random(.)
-
+		
 /datum/supply_pack/misc/coloredsheets
 	name = "Bedsheet Crate"
 	desc = "Give your night life a splash of color with this crate filled with bedsheets! Contains a total of nine different-colored sheets."
@@ -395,8 +395,8 @@
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////// Lewd Supplies ///////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
-/*
-/datum/supply_pack/misc/lewd
+
+/*/datum/supply_pack/misc/lewd
 	name = "Lewd Crate" // OwO
 	desc = "Pssst, want to have a good time with your sluts? Well I got what you want! Maid clothing, dildos, collars and more!"
 	cost = 5250
@@ -416,14 +416,52 @@
 					/obj/item/storage/pill_bottle/penis_enlargement,
 					/obj/structure/reagent_dispensers/keg/aphro)
 	crate_name = "lewd kit"
-	crate_type = /obj/structure/closet/crate
+	crate_type = /obj/structure/closet/crate*/
 
-/datum/supply_pack/misc/lewdkeg
+/*/datum/supply_pack/misc/lewdkeg
 	name = "Lewd Deluxe Keg"
 	desc = "That other stuff not getting you ready? Well I have a Chemslut making tons of the good stuff."
 	cost = 7500 //It can be a weapon
 	contraband = TRUE
 	contains = list(/obj/structure/reagent_dispensers/keg/aphro/strong)
 	crate_name = "deluxe keg"
+	crate_type = /obj/structure/closet/crate*/
+
+
+///Special supply crate that generates random syndicate gear up to a determined TC value
+
+/datum/supply_pack/misc/syndicate
+
+	name = "Assorted Syndicate Gear"
+
+	desc = "Contains a random assortment of syndicate gear."
+
+	special = TRUE ///Cannot be ordered via cargo
+
+	contains = list()
+
+	crate_name = "syndicate gear crate"
+
 	crate_type = /obj/structure/closet/crate
-*/
+
+	var/crate_value = 30 ///Total TC worth of contained uplink items
+
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////// Syndicate Packs /////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+//Generate assorted uplink items, taking into account the same surplus modifiers used for surplus crates
+//(this is exclusively used for the rare variant of the stray cargo event!)
+/datum/supply_pack/misc/syndicate/fill(obj/structure/closet/crate/C)
+	var/list/uplink_items = get_uplink_items(SSticker.mode)
+	while(crate_value)
+		var/category = pick(uplink_items)
+		var/item = pick(uplink_items[category])
+		var/datum/uplink_item/I = uplink_items[category][item]
+		if(!I.surplus || prob(100 - I.surplus))
+			continue
+		if(crate_value < I.cost)
+			continue
+		crate_value -= I.cost
+		new I.item(C)
