@@ -350,7 +350,7 @@
 /area/security/prison)
 "aaV" = (
 /obj/structure/table/wood,
-/obj/item/storage/pill_bottle/dice,
+/obj/item/storage/box/dice,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "aaW" = (
@@ -4879,6 +4879,10 @@
 	dir = 4
 	},
 /obj/machinery/holopad,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "hopqueue";
+	name = "HoP Queue Shutters"
+	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central)
 "aiW" = (
@@ -5103,7 +5107,7 @@
 /area/security/main)
 "ajv" = (
 /obj/machinery/computer/med_data{
-	dir = 3
+	dir = 4
 	},
 /obj/structure/sign/poster/official/medical_green_cross{
 	pixel_x = -32
@@ -11788,59 +11792,8 @@
 /obj/item/instrument/eguitar,
 /turf/open/floor/wood,
 /area/crew_quarters/theatre)
-"azJ" = (
-/obj/machinery/gateway{
-	dir = 9
-	},
-/obj/effect/turf_decal/bot_white/right,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/turf/open/floor/plasteel/dark,
-/area/gateway)
 "azK" = (
 /obj/machinery/light{
-	dir = 8
-	},
-/turf/open/floor/plasteel/dark,
-/area/gateway)
-"azL" = (
-/obj/machinery/gateway{
-	dir = 5
-	},
-/obj/effect/turf_decal/bot_white/left,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/turf/open/floor/plasteel/dark,
-/area/gateway)
-"azM" = (
-/obj/machinery/gateway{
-	dir = 1
-	},
-/obj/effect/turf_decal/bot_white,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
@@ -12316,30 +12269,10 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/closed/wall/r_wall,
 /area/ai_monitored/nuke_storage)
-"aBd" = (
-/obj/machinery/gateway{
-	dir = 8
-	},
-/obj/effect/turf_decal/bot_white,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/turf/open/floor/plasteel/dark,
-/area/gateway)
 "aBe" = (
 /turf/open/floor/plasteel/dark,
 /area/gateway)
 "aBf" = (
-/obj/machinery/gateway{
-	dir = 4
-	},
 /obj/effect/turf_decal/bot_white,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -12692,9 +12625,6 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/nuke_storage)
 "aBX" = (
-/obj/machinery/gateway{
-	dir = 10
-	},
 /obj/effect/turf_decal/bot_white/left,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -12709,9 +12639,6 @@
 /turf/open/floor/plasteel/dark,
 /area/gateway)
 "aBY" = (
-/obj/machinery/gateway{
-	dir = 6
-	},
 /obj/effect/turf_decal/bot_white/right,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -12726,7 +12653,6 @@
 /turf/open/floor/plasteel/dark,
 /area/gateway)
 "aBZ" = (
-/obj/machinery/gateway,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -13425,7 +13351,6 @@
 	pixel_y = 32
 	},
 /obj/structure/sink{
-	dir = 1;
 	pixel_y = 25
 	},
 /obj/machinery/button/door{
@@ -13795,8 +13720,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/nuke_storage)
 "aEQ" = (
-/obj/structure/table,
-/obj/item/paper/pamphlet/gateway,
+/obj/machinery/computer/gateway_control,
 /turf/open/floor/plasteel,
 /area/gateway)
 "aER" = (
@@ -14312,7 +14236,6 @@
 	pixel_y = 32
 	},
 /obj/structure/sink{
-	dir = 1;
 	pixel_y = 25
 	},
 /obj/machinery/button/door{
@@ -21797,7 +21720,6 @@
 	pixel_y = 32
 	},
 /obj/structure/sink{
-	dir = 1;
 	pixel_y = 25
 	},
 /obj/machinery/button/door{
@@ -30970,7 +30892,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/space/nearstation)
 "bvH" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
@@ -53516,6 +53438,7 @@
 "dfh" = (
 /obj/machinery/power/apc{
 	areastring = "/area/science/circuit";
+	dir = 4;
 	name = "Circuitry Lab APC";
 	pixel_x = 30
 	},
@@ -53760,9 +53683,6 @@
 	},
 /turf/open/floor/mineral/titanium/blue,
 /area/crew_quarters/toilet)
-"dVU" = (
-/turf/open/floor/plating,
-/area/space/nearstation)
 "dXq" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 4
@@ -53815,7 +53735,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/space/nearstation)
 "egt" = (
 /obj/effect/turf_decal/tile/bar,
@@ -54444,7 +54364,7 @@
 "fIs" = (
 /obj/structure/grille,
 /obj/structure/lattice,
-/turf/open/floor/plating,
+/turf/open/space/basic,
 /area/space/nearstation)
 "fJY" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
@@ -54466,6 +54386,7 @@
 /obj/structure/chair/office/dark{
 	dir = 1
 	},
+/obj/effect/landmark/start/atmospheric_technician,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
 "fMp" = (
@@ -54601,19 +54522,6 @@
 	},
 /turf/open/floor/carpet,
 /area/crew_quarters/cryopod)
-"ghq" = (
-/obj/structure/lattice/catwalk,
-/obj/item/stack/marker_beacon{
-	anchored = 1;
-	icon_state = "markerburgundy-on";
-	light_color = "#FA644B";
-	light_power = 3;
-	light_range = 3;
-	name = "Docking Beacon";
-	picked_color = "Burgundy"
-	},
-/turf/open/floor/plating,
-/area/space/nearstation)
 "ghD" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/plasteel,
@@ -54770,7 +54678,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/space/nearstation)
 "gJi" = (
 /obj/structure/lattice/catwalk,
@@ -54855,7 +54763,6 @@
 	dir = 8
 	},
 /obj/structure/sink{
-	dir = 1;
 	pixel_y = 25
 	},
 /obj/structure/mirror{
@@ -54949,7 +54856,7 @@
 /area/engine/atmos)
 "hgO" = (
 /obj/structure/table,
-/obj/item/storage/pill_bottle/dice{
+/obj/item/storage/box/dice{
 	pixel_x = 4;
 	pixel_y = 4
 	},
@@ -55007,7 +54914,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/space/nearstation)
 "hxn" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -57154,6 +57061,7 @@
 	dir = 4;
 	pixel_y = 5
 	},
+/obj/item/clothing/head/hardhat/cakehat,
 /turf/open/floor/wood,
 /area/crew_quarters/bar)
 "oby" = (
@@ -57277,7 +57185,6 @@
 	dir = 8
 	},
 /obj/structure/sink{
-	dir = 1;
 	pixel_y = 25
 	},
 /obj/structure/mirror{
@@ -57369,7 +57276,7 @@
 /area/crew_quarters/theatre)
 "oyN" = (
 /obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/space/nearstation)
 "oyX" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
@@ -57926,7 +57833,6 @@
 	pixel_y = 32
 	},
 /obj/structure/sink{
-	dir = 1;
 	pixel_y = 25
 	},
 /turf/open/floor/mineral/titanium/blue,
@@ -57989,7 +57895,6 @@
 	pixel_y = 32
 	},
 /obj/structure/sink{
-	dir = 1;
 	pixel_y = 25
 	},
 /obj/machinery/light/small{
@@ -58210,7 +58115,7 @@
 	dir = 5
 	},
 /obj/machinery/camera{
-	c_tag = "Bar Backroom"
+	c_tag = "Gravity Generator - Fore"
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 4
@@ -58493,7 +58398,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/space/nearstation)
 "slk" = (
 /obj/machinery/door/airlock/maintenance{
@@ -58750,9 +58655,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/closed/wall/r_wall,
 /area/engine/engine_smes)
-"sQX" = (
-/turf/open/floor/plating,
-/area/space)
 "sRH" = (
 /obj/machinery/autolathe/secure{
 	name = "public autolathe"
@@ -58869,7 +58771,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/space/nearstation)
 "trb" = (
 /obj/machinery/light{
@@ -59092,7 +58994,7 @@
 /area/hallway/primary/central)
 "uaw" = (
 /obj/machinery/power/apc{
-	areastring = "/area/storage/art";
+	areastring = "/area/maintenance/bar";
 	dir = 1;
 	name = "Maint bar";
 	pixel_y = 24
@@ -59505,7 +59407,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/space/nearstation)
 "vbi" = (
 /obj/structure/table,
@@ -60604,7 +60506,7 @@
 	name = "Docking Beacon";
 	picked_color = "Burgundy"
 	},
-/turf/open/space/basic,
+/turf/open/floor/plating/airless,
 /area/space/nearstation)
 "xOx" = (
 /obj/structure/chair/comfy/brown{
@@ -60752,7 +60654,6 @@
 	pixel_y = 32
 	},
 /obj/structure/sink{
-	dir = 1;
 	pixel_y = 25
 	},
 /obj/machinery/button/door{
@@ -66838,11 +66739,11 @@ aaa
 aaa
 aaa
 aaa
-ghq
+xLX
 aaa
 aaa
 aaa
-ghq
+xLX
 aaa
 aaa
 aaa
@@ -67089,13 +66990,9 @@ aaa
 aaa
 aaa
 aaa
-ghq
+xLX
 aaa
-ghq
-aaa
-aaa
-aaa
-gXs
+xLX
 aaa
 aaa
 aaa
@@ -67103,9 +67000,13 @@ gXs
 aaa
 aaa
 aaa
-ghq
+gXs
 aaa
-ghq
+aaa
+aaa
+xLX
+aaa
+xLX
 aaa
 aaa
 aaa
@@ -76654,7 +76555,7 @@ aaa
 aaa
 aaa
 aaa
-aag
+aaa
 aaa
 aaa
 aaa
@@ -76911,7 +76812,7 @@ aaa
 aaa
 aaa
 aaa
-aag
+aaa
 aaa
 aaa
 aaa
@@ -77168,7 +77069,7 @@ aaa
 aaa
 aaa
 aaa
-aag
+aaa
 aaa
 aaa
 aaa
@@ -77425,7 +77326,7 @@ aaa
 aaa
 aaa
 aaa
-aag
+aaa
 aaa
 aaa
 aaa
@@ -77682,7 +77583,7 @@ aaa
 aaa
 aaa
 aaa
-aag
+aaa
 aaa
 aaa
 aaa
@@ -77939,7 +77840,7 @@ aaa
 aaa
 aaa
 aaa
-aag
+aaa
 aaa
 aaa
 aaa
@@ -78196,7 +78097,7 @@ aaa
 aaa
 aaa
 aaa
-aag
+aaa
 aaa
 aoV
 bZm
@@ -78453,13 +78354,13 @@ aaa
 aaa
 aaa
 aaa
-aag
+aaa
 aaa
 aoV
 bVz
 aaf
 aaf
-sQX
+aoV
 aaa
 aaS
 aaf
@@ -78710,7 +78611,7 @@ aaa
 aaa
 aaa
 aaa
-aag
+aaa
 aaa
 aag
 bVz
@@ -78967,7 +78868,7 @@ aaa
 aaa
 aaa
 aaa
-aag
+gJi
 aaa
 aaf
 bVz
@@ -79224,7 +79125,7 @@ aaa
 aaa
 aaa
 aaa
-aag
+gJi
 aaa
 aaf
 bVz
@@ -84053,8 +83954,8 @@ esK
 awb
 axt
 ayG
-azJ
-aBd
+aBY
+aBf
 aBX
 aDi
 aEQ
@@ -84274,7 +84175,7 @@ aaa
 aaa
 gXs
 gXs
-dVU
+aaH
 abc
 abu
 abu
@@ -84310,7 +84211,7 @@ arP
 awb
 axt
 ayG
-azM
+aBf
 aBg
 aBZ
 aDx
@@ -84567,7 +84468,7 @@ arP
 vgJ
 hSl
 ayG
-azL
+aBX
 aBf
 aBY
 aDw
