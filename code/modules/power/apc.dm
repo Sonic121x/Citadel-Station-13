@@ -1009,7 +1009,7 @@
 		. = UI_INTERACTIVE
 
 /obj/machinery/power/apc/ui_act(action, params)
-	if(..() || !can_use(usr, 1) || (locked && area.hasSiliconAccessInArea(usr, PRIVILEDGES_SILICON|PRIVILEDGES_DRONE) && !failure_timer && action != "toggle_nightshift") || (integration_cog && (is_servant_of_ratvar(usr))))
+	if(..() || !can_use(usr, 1) || (locked && !area.hasSiliconAccessInArea(usr, PRIVILEDGES_SILICON|PRIVILEDGES_DRONE) && !failure_timer && action != "toggle_nightshift" && (!integration_cog || !(is_servant_of_ratvar(usr)))))
 		return
 	switch(action)
 		if("lock")
@@ -1161,7 +1161,7 @@
 	occupier.eyeobj.name = "[occupier.name] (AI Eye)"
 	if(malf.parent)
 		qdel(malf)
-	occupier.verbs += /mob/living/silicon/ai/proc/corereturn
+	add_verb(occupier, /mob/living/silicon/ai/proc/corereturn)
 	occupier.cancel_camera()
 
 
@@ -1173,7 +1173,7 @@
 		occupier.parent.shunted = 0
 		occupier.parent.setOxyLoss(occupier.getOxyLoss())
 		occupier.parent.cancel_camera()
-		occupier.parent.verbs -= /mob/living/silicon/ai/proc/corereturn
+		remove_verb(occupier.parent, /mob/living/silicon/ai/proc/corereturn)
 		qdel(occupier)
 	else
 		to_chat(occupier, "<span class='danger'>Primary core damaged, unable to return core processes.</span>")
@@ -1449,7 +1449,7 @@
 	environ = 0
 	update_icon()
 	update()
-	addtimer(CALLBACK(src, .proc/reset, APC_RESET_EMP), 600)
+	addtimer(CALLBACK(src, .proc/reset, APC_RESET_EMP), severity*8)
 
 /obj/machinery/power/apc/blob_act(obj/structure/blob/B)
 	set_broken()

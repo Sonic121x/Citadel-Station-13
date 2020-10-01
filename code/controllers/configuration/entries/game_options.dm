@@ -98,6 +98,11 @@
 	config_entry_value = 6
 	min_val = 1
 
+/datum/config_entry/number/ecult_scaling_coeff		//how much does the amount of players get divided by to determine e_cult
+	config_entry_value = 6
+	integer = FALSE
+	min_val = 1
+
 /datum/config_entry/number/security_scaling_coeff	//how much does the amount of players get divided by to determine open security officer positions
 	config_entry_value = 8
 	min_val = 1
@@ -529,4 +534,16 @@
 	config_entry_value = 6
 
 /datum/config_entry/number/max_shuttle_size
-	config_entry_value = 250
+	config_entry_value = 500
+
+//wound config stuff (increases the max injury roll, making injuries more likely)
+/datum/config_entry/number/wound_exponent
+	config_entry_value = WOUND_DAMAGE_EXPONENT
+	min_val = 0
+	integer = FALSE
+
+//adds a set amount to any injury rolls on a limb using get_damage() multiplied by this number
+/datum/config_entry/number/wound_damage_multiplier
+	config_entry_value = 0.333
+	min_val = 0
+	integer = FALSE

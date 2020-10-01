@@ -111,6 +111,9 @@
 		var/mob/living/L = user
 		if(HAS_TRAIT(L, TRAIT_SKITTISH))
 			. += "<span class='notice'>Ctrl-Shift-click [src] to jump inside.</span>"
+	if(isobserver(user))
+		. += "<span class='info'>It contains: [english_list(contents)].</span>"
+		investigate_log("had its contents examined by [user] as a ghost.", INVESTIGATE_GHOST)
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target)
 	if(wall_mounted)
@@ -568,10 +571,10 @@
 			O.emp_act(severity)
 	if(!secure || broken)
 		return ..()
-	if(prob(50 / severity))
+	if(prob(severity/2))
 		locked = !locked
 		update_icon()
-	if(prob(20 / severity) && !opened)
+	if(prob(severity/5) && !opened)
 		if(!locked)
 			open()
 		else

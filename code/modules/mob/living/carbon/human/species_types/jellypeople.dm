@@ -18,7 +18,8 @@
 	var/datum/action/innate/regenerate_limbs/regenerate_limbs
 	var/datum/action/innate/slime_change/slime_change	//CIT CHANGE
 	liked_food = TOXIC | MEAT
-	toxic_food = null
+	disliked_food = null
+	toxic_food = ANTITOXIC
 	coldmod = 6   // = 3x cold damage
 	heatmod = 0.5 // = 1/4x heat damage
 	burnmod = 0.5 // = 1/2x generic burn damage
@@ -248,6 +249,8 @@
 	var/mob/living/carbon/human/spare = new /mob/living/carbon/human(H.loc)
 
 	spare.underwear = "Nude"
+	spare.undershirt = "Nude"
+	spare.socks = "Nude"
 	H.dna.transfer_identity(spare, transfer_SE=1)
 	spare.dna.features["mcolor"] = pick("FFFFFF","7F7F7F", "7FFF7F", "7F7FFF", "FF7F7F", "7FFFFF", "FF7FFF", "FFFF7F")
 	spare.real_name = spare.dna.real_name
@@ -434,6 +437,8 @@
 	heatmod = 1
 	burnmod = 1
 
+	allowed_limb_ids = list("slime","stargazer","lum")
+
 /datum/action/innate/slime_change
 	name = "Alter Form"
 	check_flags = AB_CHECK_CONSCIOUS
@@ -504,7 +509,7 @@
 	else if (select_alteration == "Ears")
 		var/list/snowflake_ears_list = list("Normal" = null)
 		for(var/path in GLOB.mam_ears_list)
-			var/datum/sprite_accessory/mam_ears/instance = GLOB.mam_ears_list[path]
+			var/datum/sprite_accessory/ears/mam_ears/instance = GLOB.mam_ears_list[path]
 			if(istype(instance, /datum/sprite_accessory))
 				var/datum/sprite_accessory/S = instance
 				if((!S.ckeys_allowed) || (S.ckeys_allowed.Find(H.client.ckey)))
@@ -518,7 +523,7 @@
 	else if (select_alteration == "Snout")
 		var/list/snowflake_snouts_list = list("Normal" = null)
 		for(var/path in GLOB.mam_snouts_list)
-			var/datum/sprite_accessory/mam_snouts/instance = GLOB.mam_snouts_list[path]
+			var/datum/sprite_accessory/snouts/mam_snouts/instance = GLOB.mam_snouts_list[path]
 			if(istype(instance, /datum/sprite_accessory))
 				var/datum/sprite_accessory/S = instance
 				if((!S.ckeys_allowed) || (S.ckeys_allowed.Find(H.client.ckey)))
@@ -549,7 +554,7 @@
 	else if (select_alteration == "Tail")
 		var/list/snowflake_tails_list = list("Normal" = null)
 		for(var/path in GLOB.mam_tails_list)
-			var/datum/sprite_accessory/mam_tails/instance = GLOB.mam_tails_list[path]
+			var/datum/sprite_accessory/tails/mam_tails/instance = GLOB.mam_tails_list[path]
 			if(istype(instance, /datum/sprite_accessory))
 				var/datum/sprite_accessory/S = instance
 				if((!S.ckeys_allowed) || (S.ckeys_allowed.Find(H.client.ckey)))

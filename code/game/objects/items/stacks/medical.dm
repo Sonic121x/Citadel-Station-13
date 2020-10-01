@@ -128,6 +128,7 @@
 	absorption_capacity = 5
 	splint_factor = 0.35
 	custom_price = PRICE_REALLY_CHEAP
+	grind_results = list(/datum/reagent/cellulose = 2)
 
 // gauze is only relevant for wounds, which are handled in the wounds themselves
 /obj/item/stack/medical/gauze/try_heal(mob/living/M, mob/user, silent)
@@ -239,6 +240,9 @@
 /obj/item/stack/medical/suture/one
 	amount = 1
 
+/obj/item/stack/medical/suture/five
+	amount = 5
+
 /obj/item/stack/medical/suture/medicated
 	name = "medicated suture"
 	icon_state = "suture_purp"
@@ -265,8 +269,8 @@
 			to_chat(user, "<span class='notice'>[M] is at full health.</span>")
 			return FALSE
 		user.visible_message("<span class='green'>[user] applies \the [src] on [M].</span>", "<span class='green'>You apply \the [src] on [M].</span>")
-		return heal_carbon(M, user, heal_brute, heal_burn)
-
+		M.heal_bodypart_damage(heal_brute)
+		return TRUE
 	to_chat(user, "<span class='warning'>You can't heal [M] with \the [src]!</span>")
 
 /obj/item/stack/medical/ointment
@@ -318,6 +322,9 @@
 
 /obj/item/stack/medical/mesh/one
 	amount = 1
+
+/obj/item/stack/medical/mesh/five
+	amount = 5
 
 /obj/item/stack/medical/mesh/advanced
 	name = "advanced regenerative mesh"

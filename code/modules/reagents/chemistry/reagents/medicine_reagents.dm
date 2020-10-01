@@ -36,6 +36,25 @@
 	taste_description = "badmins"
 	value = REAGENT_VALUE_GLORIOUS
 
+// The best stuff there is. For testing/debugging.
+/datum/reagent/medicine/adminordrazine/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)
+	. = ..()
+	if(chems.has_reagent(type, 1))
+		mytray.adjustWater(round(chems.get_reagent_amount(type) * 1))
+		mytray.adjustHealth(round(chems.get_reagent_amount(type) * 1))
+		mytray.adjustPests(-rand(1,5))
+		mytray.adjustWeeds(-rand(1,5))
+	if(chems.has_reagent(type, 3))
+		switch(rand(100))
+			if(66  to 100)
+				mytray.mutatespecie()
+			if(33	to 65)
+				mytray.mutateweed()
+			if(1   to 32)
+				mytray.mutatepest(user)
+			else if(prob(20))
+				mytray.visible_message("<span class='warning'>Nothing happens...</span>")
+
 /datum/reagent/medicine/adminordrazine/on_mob_life(mob/living/carbon/M)
 	M.reagents.remove_all_type(/datum/reagent/toxin, 5*REM, 0, 1)
 	M.setCloneLoss(0, 0)
@@ -515,12 +534,13 @@
 	overdose_threshold = 30
 	pH = 2
 	value = REAGENT_VALUE_UNCOMMON
+	var/healing = 0.5
 
 /datum/reagent/medicine/omnizine/on_mob_life(mob/living/carbon/M)
-	M.adjustToxLoss(-0.5*REM, 0)
-	M.adjustOxyLoss(-0.5*REM, 0)
-	M.adjustBruteLoss(-0.5*REM, 0)
-	M.adjustFireLoss(-0.5*REM, 0)
+	M.adjustToxLoss(-healing*REM, 0)
+	M.adjustOxyLoss(-healing*REM, 0)
+	M.adjustBruteLoss(-healing*REM, 0)
+	M.adjustFireLoss(-healing*REM, 0)
 	..()
 	. = 1
 
@@ -531,6 +551,12 @@
 	M.adjustFireLoss(1.5*REM, 0)
 	..()
 	. = 1
+
+/datum/reagent/medicine/omnizine/protozine
+	name = "Protozine"
+	description = "A less environmentally friendly and somewhat weaker variant of omnizine."
+	color = "#d8c7b7"
+	healing = 0.2
 
 /datum/reagent/medicine/calomel
 	name = "Calomel"
@@ -1161,6 +1187,11 @@
 	..()
 	. = 1
 
+// Antitoxin binds plants pretty well. So the tox goes significantly down
+/datum/reagent/medicine/antitoxin/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)
+	. = ..()
+	mytray.adjustToxic(-round(chems.get_reagent_amount(type) * 2))
+
 /datum/reagent/medicine/inaprovaline
 	name = "Inaprovaline"
 	description = "Stabilizes the breathing of patients. Good for those in critical condition."
@@ -1290,6 +1321,21 @@
 	pH = 11
 	value = REAGENT_VALUE_COMMON //not any higher. Ambrosia is a milestone for hydroponics already.
 
+	
+//Earthsblood is still a wonderdrug. Just... don't expect to be able to mutate something that makes plants so healthy.
+/datum/reagent/medicine/earthsblood/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)
+	. = ..()
+	if(chems.has_reagent(src.type, 1))
+		mytray.adjustHealth(round(chems.get_reagent_amount(src.type) * 1))
+		mytray.adjustPests(-rand(1,3))
+		mytray.adjustWeeds (-rand(1,3))
+		if(myseed)
+			myseed.adjust_instability(-round(chems.get_reagent_amount(src.type) * 1.3))
+			myseed.adjust_potency(round(chems.get_reagent_amount(src.type) *1))
+			myseed.adjust_yield(round(chems.get_reagent_amount(src.type) * 1))
+			myseed.adjust_endurance(round(chems.get_reagent_amount(src.type) * 0.5))
+			myseed.adjust_production(-round(chems.get_reagent_amount(src.type) * 0.5))
+	
 /datum/reagent/medicine/earthsblood/on_mob_life(mob/living/carbon/M)
 	M.adjustBruteLoss(-3 * REM, FALSE)
 	M.adjustFireLoss(-3 * REM, FALSE)
