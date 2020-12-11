@@ -77,7 +77,7 @@
 	popup.set_window_options("can_close=0")
 	popup.set_content(output)
 	popup.open(FALSE)
-
+/*
 /mob/dead/new_player/proc/age_verify()
 	if(CONFIG_GET(flag/age_verification) && !check_rights_for(client, R_ADMIN) && !(client.ckey in GLOB.bunker_passthrough)) //make sure they are verified
 		if(!client.set_db_player_flags())
@@ -99,7 +99,7 @@
 					message_admins("[ckey] has joined through the automated age gate process.")
 					return TRUE
 	return TRUE
-
+*/
 /mob/dead/new_player/Topic(href, href_list[])
 	if(src != usr)
 		return 0
