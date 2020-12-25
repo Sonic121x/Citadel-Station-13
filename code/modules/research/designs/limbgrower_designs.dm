@@ -150,7 +150,7 @@
 	category = list("initial","human","lizard","fly","insect","plasmaman","mammal","xeno")
 
 //genitals
-
+/*
 /datum/design/penis
 	name = "Penis"
 	id = "penis"
@@ -200,3 +200,4 @@
 	reagents_list = list(/datum/reagent/medicine/synthflesh = 25)
 	build_path = /obj/item/organ/genital/breasts
 	category = list("initial","human","lizard","fly","insect","plasmaman","mammal","xeno")
+*/
