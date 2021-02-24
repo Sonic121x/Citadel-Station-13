@@ -62,7 +62,7 @@
 	results = list(/datum/reagent/moonsugar = 1, /datum/reagent/medicine/morphine = 2.5)
 	required_temp = 315 //a little above normal body temperature
 	required_reagents = list(/datum/reagent/drug/skooma = 1)
-
+/*
 /datum/chemical_reaction/aphro
 	name = "crocin"
 	id = /datum/reagent/drug/aphrodisiac
@@ -94,3 +94,4 @@
 	required_reagents = list(/datum/reagent/drug/aphrodisiac = 5, /datum/reagent/acetone = 1)
 	required_temp = 300
 	mix_message = "The mixture thickens and heats up slighty..."
+*/
