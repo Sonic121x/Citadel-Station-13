@@ -500,19 +500,19 @@
 			else if (lowertext(customTriggers[trigger]) == "shock")
 				if (lewd && ishuman(C))
 					var/mob/living/carbon/human/H = C
-					H.adjust_arousal(5, "MKUltra", aphro = TRUE)
+					H.adjust_arousal(0, "MKUltra", aphro = TRUE)
 				C.jitteriness += 100
 				C.stuttering += 25
 				C.DefaultCombatKnockdown(60)
 				C.Stun(60)
 				to_chat(owner, "<span class='warning'><i>Your muscles seize up, then start spasming wildy!</i></span>")
-
+/*
 			else if (lewd && lowertext(customTriggers[trigger]) == "cum")//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 				if(ishuman(C))
 					var/mob/living/carbon/human/H = C
 					H.mob_climax(forced_climax=TRUE, cause = "MKUltra")
 				C.SetStun(10)//We got your stun effects in somewhere, Kev.
-
+*/
 			//kneel (knockdown)
 			else if (lowertext(customTriggers[trigger]) == "kneel")//as close to kneeling as you can get, I suppose.
 				to_chat(owner, "<span class='notice'><i>You drop to the ground unsurreptitiously.</i></span>")
