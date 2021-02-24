@@ -9,7 +9,7 @@
 	var/hidden_underwear = FALSE
 	var/hidden_undershirt = FALSE
 	var/hidden_socks = FALSE
-	var/arousal_rate = 1
+	var/arousal_rate = 0
 
 //Mob procs
 /mob/living/carbon/human/verb/underwear_toggle()
