@@ -32,6 +32,10 @@
 	name = "Tan suit"
 	path = /obj/item/clothing/under/suit/tan
 
+/datum/gear/uniform/suit/charismatic_suit
+	name = "Charismatic suit"
+	path = /obj/item/clothing/under/suit/charismatic_suit
+
 /datum/gear/uniform/suit/white
 	name = "White suit"
 	path = /obj/item/clothing/under/suit/white
@@ -165,6 +169,13 @@
 /datum/gear/uniform/pants/tan
 	name = "Tan Pants"
 	path = /obj/item/clothing/under/pants/tan
+
+/datum/gear/uniform/pants/polypants
+	name = "Polychromic Pants"
+	path = /obj/item/clothing/under/pants/polypants/polychromic
+	cost = 2
+	loadout_flags = LOADOUT_CAN_NAME | LOADOUT_CAN_DESCRIPTION | LOADOUT_CAN_COLOR_POLYCHROMIC
+	loadout_initial_colors = list("#75634F", "#3D3D3D", "#575757")
 
 /datum/gear/uniform/pants/track
 	name = "Track Pants"
